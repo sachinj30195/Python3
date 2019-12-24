@@ -1,0 +1,81 @@
+{% extends "product/base.html" %}
+
+
+
+{% block content %}
+
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+          <!--{{ form.id }}-->
+    {{ form.category }}
+    {{ form.product }}
+    {{ form.supplier }}
+    {{ form.price }}
+    {{ form.stock }}
+
+
+    <!--<div class="form-group">-->
+        <!--<div class="row">-->
+        <!--<label  class="col-md-1 control-label">Category</label>-->
+        <!--<div class="col-md-10">-->
+            <!--{{ form.category }}-->
+            <!--{{ form.category.errors }}-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="form-group">-->
+        <!--<div class="row">-->
+        <!--<label class="col-md-1 control-label">Product</label>-->
+        <!--<div class="col-md-7">-->
+            <!--{{ form.product }}-->
+            <!--{{ form.product.errors }}-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="row">-->
+        <!--<label class="col-md-1 control-label">Supplier</label>-->
+        <!--<div class="col-md-7">-->
+            <!--{{ form.supplier }}-->
+            <!--{{ form.supplier.errors }}-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="row">-->
+        <!--<label class="col-md-1 control-label">Price</label>-->
+        <!--<div class="col-md-7">-->
+            <!--{{ form.price }}-->
+            <!--{{ form.price.errors }}-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+        <!--<div class="form-group">-->
+        <!--<div class="row">-->
+        <!--<label class="col-md-1 control-label">Stock</label>-->
+        <!--<div class="col-md-7">-->
+            <!--{{ form.stock }}-->
+            <!--{{ form.stock.errors }}-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <p></p>
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
+                Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'product_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back to list
+            </a>
+        </div>
+    </div>
+
+</form>
+
+{% endblock content %}

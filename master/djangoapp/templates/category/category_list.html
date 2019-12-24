@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+    <ul class="messages">
+    {% for msg in messages %}
+    <li>
+        <div class="alert alert-success">{{ msg }}</div>
+    </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Id</td>
+            <td>Category</td>
+            <td>Description</td>
+            <td>
+                <a href="{% url 'category_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in category_list %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.category }}</td>
+                <td>{{ category.description }}</td>
+                <td>
+                    <a href="{% url 'category_update' category.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'category_delete' category.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% include "pagination.html" with page=category_list %}
+
+{% endblock content %}
